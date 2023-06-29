@@ -19,8 +19,6 @@ public class HashMapUserStore {
     }
 
     public User findUserById(String id) {
-        System.out.println("Id : - " + id);
-        System.out.println(users.stream().filter(user -> user.getUsername().equals(id)));
         return users.stream().filter(user -> user.getUsername().equals(id)).findFirst().orElse(null);
     }
     public User findUserByUsernameOrEmail(String username) {
@@ -30,8 +28,6 @@ public class HashMapUserStore {
     }
     public List<User> findUsers(String query) {
             this.users = userApiService.getAllUsers(API_URL);
-            System.out.println("Users refreshed from API.");
-
         return users.stream()
                 .filter(user -> query.equalsIgnoreCase("*") || user.getUsername().contains(query))
                 .collect(Collectors.toList());

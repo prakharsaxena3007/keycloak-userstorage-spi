@@ -41,11 +41,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.mopano</groupId>
-            <artifactId>hibernate-json-org-contributor</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-admin-client</artifactId>
             <version>21.1.1</version>

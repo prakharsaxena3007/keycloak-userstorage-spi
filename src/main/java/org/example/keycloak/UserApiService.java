@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.keycloak.external.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -17,7 +16,7 @@ public class UserApiService {
     public Logger logger = LoggerFactory.getLogger(UserApiService.class);
     ObjectMapper objectMapper = new ObjectMapper();
 
-    public List<User> getAllUsers(String url) throws NullPointerException {
+    public List<User> getAllUsers(String url){
         List<User> userList = new ArrayList<>();
 
         try {

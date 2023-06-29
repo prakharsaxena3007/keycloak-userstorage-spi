@@ -39,8 +39,8 @@ public class SpringUserStorageProvider implements
     }
 
     @Override
-    public Stream<UserModel> searchForUserStream(RealmModel realmModel, String s, Integer integer, Integer integer1) {
-        return searchForUserStream(realmModel, s);
+    public Stream<UserModel> searchForUserStream(RealmModel realmModel, String search, Integer integer, Integer integer1) {
+        return searchForUserStream(realmModel, search);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class SpringUserStorageProvider implements
     }
 
     @Override
-    public Stream<UserModel> searchForUserByUserAttributeStream(RealmModel realmModel, String s, String s1) {
+    public Stream<UserModel> searchForUserByUserAttributeStream(RealmModel realmModel, String search, String s1) {
         return Stream.empty();
     }
 
