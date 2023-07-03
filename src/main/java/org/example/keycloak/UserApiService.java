@@ -11,6 +11,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class UserApiService {
     public Logger logger = LoggerFactory.getLogger(UserApiService.class);
@@ -29,11 +30,11 @@ public class UserApiService {
 
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                String line;
+                String allUsersFromApi = reader.readLine();
                 StringBuilder response = new StringBuilder();
 
-                while ((line = reader.readLine()) != null) {
-                    response.append(line);
+                while (Objects.nonNull(allUsersFromApi)) {
+                    response.append(allUsersFromApi);
                 }
                 reader.close();
                 JsonNode jsonResponse  = objectMapper.readTree(response.toString());
@@ -50,7 +51,7 @@ public class UserApiService {
                     }
                 }
             } else {
-                logger.error("HTTP request failed with response code: " +responseCode);
+               String.format("HTTP request failed with response code: %s ",responseCode);
             }
             connection.disconnect();
         }catch (Exception e) {
