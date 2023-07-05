@@ -30,10 +30,10 @@ public class UserApiService {
 
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                String allUsersFromApi = reader.readLine();
+                String allUsersFromApi ;
                 StringBuilder response = new StringBuilder();
 
-                while (Objects.nonNull(allUsersFromApi)) {
+                while ((allUsersFromApi= reader.readLine()) != null) {
                     response.append(allUsersFromApi);
                 }
                 reader.close();
