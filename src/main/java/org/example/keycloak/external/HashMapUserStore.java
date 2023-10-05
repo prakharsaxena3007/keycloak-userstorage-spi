@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class HashMapUserStore {
     private UserApiService userApiService;
     private List<User> users;
-    private static final String API_URL = "http://localhost:8081/api/v1/users/all-users";
+    private static final String API_URL = "http://localhost:8081/api/v1/users";
 
     public HashMapUserStore(UserApiService userApiService){
             this.userApiService = userApiService;
